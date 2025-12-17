@@ -1,11 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Copy HTML Code</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      textarea {
+        width: 100%;
+        height: 400px;
+        font-family: Consolas, monospace;
+        font-size: 14px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        resize: none;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .note {
+        margin-top: 10px;
+        color: green;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
-    working
+    <h2>📋 Copy the HTML & JavaScript Code</h2>
+    <p>Select the code or click the button to copy.</p>
+
+    <textarea id="code" readonly>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Form</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+padding: 20px;
+}
+input {
+padding: 5px;
+margin-left: 10px;
+}
+button {
+padding: 8px 15px;
+background-color: #4CAF50;
+color: white;
+border: none;
+cursor: pointer;
+}
+#result {
+color: #333;
+margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<h2>Simple Form Submit (JavaScript)</h2>
+
+<form id="myForm">
+<label>Name:</label>
+<input type="text" id="name" required>
+<br><br>
+
+<label>Age:</label>
+<input type="number" id="age" required>
+<br><br>
+
+<button type="submit">Submit</button>
+</form>
+
+<h3 id="result"></h3>
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(event) {
+event.preventDefault();
+let name = document.getElementById("name").value;
+let age = document.getElementById("age").value;
+document.getElementById("result").innerText =
+"Hello " + name + "! You are " + age + " years old.";
+});
+</script>
+
+</body>
+</html>
+</textarea
+    >
+
+    <br />
+    <button onclick="copyCode()">Copy Code</button>
+    <p id="msg" class="note"></p>
+
+    <script>
+      function copyCode() {
+        let textarea = document.getElementById("code");
+        textarea.select();
+        document.execCommand("copy");
+        document.getElementById("msg").innerText =
+          "✅ Code copied successfully!";
+      }
+    </script>
   </body>
 </html>
