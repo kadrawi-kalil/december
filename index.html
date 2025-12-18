@@ -1,196 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>December Monthly Quiz — Grades 1 to 12</title>
-    <style>
-      h1 {
-        color: #2626eb;
-        font-weight: 700;
-        font-size: 50px;
-      }
-      .survey {
-        max-width: 900px;
-        margin: 60px auto;
-        padding: 30px;
-        background: var(--card);
-        border-radius: var(--radius);
-        box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
-        text-align: center;
-      }
 
-      .survey h2 {
-        margin-top: 0;
-        font-size: 1.4rem;
-        color: #111827;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>December Monthly Quiz — Grades 1 to 12</title>
+  <style>
+    h1 {
+      color: #2626eb;
+      font-weight: 700;
+      font-size: 50px;
+    }
 
-      .survey p {
-        font-size: 1rem;
-        color: var(--muted);
-        margin: 18px 0 28px;
-        line-height: 1.6;
-      }
+    .survey {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 30px;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+      text-align: center;
+    }
 
-      :root {
-        --bg: #f3f6fb;
-        --card: #ffffff;
-        --accent: #2626eb;
-        --accent-2: #06b6d4;
-        --muted: #6b7280;
-        --radius: 12px;
-        --gap: 18px;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial;
-        background: linear-gradient(180deg, var(--bg), #e9f0ff 200px);
-        min-height: 100vh;
-        padding: 36px;
-        color: #111827;
-      }
+    .survey h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: #111827;
+    }
 
-      header {
-        max-width: 1100px;
-        margin: 0 auto 22px;
-        text-align: center;
-      }
-      header h1 {
-        margin: 0 0 6px;
-        font-size: 1.5rem;
-      }
-      header p {
-        margin: 0;
-        color: var(--muted);
-      }
+    .survey p {
+      font-size: 1rem;
+      color: var(--muted);
+      margin: 18px 0 28px;
+      line-height: 1.6;
+    }
 
+    :root {
+      --bg: #f3f6fb;
+      --card: #ffffff;
+      --accent: #2626eb;
+      --accent-2: #06b6d4;
+      --muted: #6b7280;
+      --radius: 12px;
+      --gap: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, var(--bg), #e9f0ff 200px);
+      min-height: 100vh;
+      padding: 36px;
+      color: #111827;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto 22px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 6px;
+      font-size: 1.5rem;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid-wrap {
+      max-width: 1100px;
+      margin: 20px auto 0;
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    /* responsive columns */
+    @media (min-width: 520px) {
       .grid-wrap {
-        max-width: 1100px;
-        margin: 20px auto 0;
-        display: grid;
-        gap: var(--gap);
-        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-template-columns: repeat(2, 1fr);
       }
+    }
 
-      /* responsive columns */
-      @media (min-width: 520px) {
-        .grid-wrap {
-          grid-template-columns: repeat(2, 1fr);
-        }
+    @media (min-width: 840px) {
+      .grid-wrap {
+        grid-template-columns: repeat(3, 1fr);
       }
-      @media (min-width: 840px) {
-        .grid-wrap {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-      @media (min-width: 1200px) {
-        .grid-wrap {
-          grid-template-columns: repeat(4, 1fr);
-        }
-      }
+    }
 
-      .card {
-        background: var(--card);
-        border-radius: var(--radius);
-        padding: 18px;
-        box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        transition: transform 0.18s ease, box-shadow 0.18s ease;
-        min-height: 170px;
+    @media (min-width: 1200px) {
+      .grid-wrap {
+        grid-template-columns: repeat(4, 1fr);
       }
-      .card:focus-within,
-      .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 12px 30px rgba(17, 24, 39, 0.12);
-      }
+    }
 
-      .grade-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 700;
-        color: #fff;
-        background: linear-gradient(90deg, #2626eb, var(--accent-2));
-        padding: 8px 12px;
-        border-radius: 999px;
-        width: fit-content;
-        font-size: 0.95rem;
-      }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      min-height: 170px;
+    }
 
-      .card h2 {
-        margin: 0;
-        font-size: 1.15rem;
-      }
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.95rem;
-        flex: 1 1 auto;
-      }
+    .card:focus-within,
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.12);
+    }
 
-      .actions {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        justify-content: flex-end;
-      }
+    .grade-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(90deg, #2626eb, var(--accent-2));
+      padding: 8px 12px;
+      border-radius: 999px;
+      width: fit-content;
+      font-size: 0.95rem;
+    }
 
-      .btn {
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 14px;
-        border-radius: 10px;
-        background: var(--accent);
-        color: white;
-        font-weight: 600;
-        box-shadow: 0 6px 18px rgba(37, 99, 235, 0.12);
-        transition: transform 0.12s ease, opacity 0.12s ease;
-      }
-      .btn:active {
-        transform: translateY(1px);
-      }
-      .btn.secondary {
-        background: transparent;
-        color: var(--accent);
-        border: 1px solid rgba(37, 99, 235, 0.12);
-        box-shadow: none;
-        font-weight: 600;
-      }
+    .card h2 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
 
-      /* small helper */
-      .note {
-        text-align: center;
-        color: var(--muted);
-        font-size: 0.9rem;
-        margin-top: 14px;
-      }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      flex: 1 1 auto;
+    }
 
-      /* accessible focus ring */
-      a:focus {
-        outline: 3px solid rgba(37, 99, 235, 0.18);
-        outline-offset: 3px;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>December Monthly Quiz — Grades 1 to 12</h1>
-      <p>
-        Select your grade and click <strong>Start Test</strong>. Each opens in a
-        new tab.
-      </p>
-      <a href="index2.html" target="_blank"
-        >View Sample Answers ↗</a
-    </header>
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.12);
+      transition: transform 0.12s ease, opacity 0.12s ease;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      box-shadow: none;
+      font-weight: 600;
+    }
+
+    /* small helper */
+    .note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 14px;
+    }
+
+    /* accessible focus ring */
+    a:focus {
+      outline: 3px solid rgba(37, 99, 235, 0.18);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>December Monthly Quiz — Grades 1 to 12</h1>
+    <p>
+      Select your grade and click <strong>Start Test</strong>. Each opens in a
+      new tab.
+    </p>
+    <a href="index2.html" target="_blank">View Sample Answers ↗</a </header>
 
     <main class="grid-wrap" id="grid" aria-live="polite">
       <!-- Cards will be generated here by JavaScript -->
@@ -207,7 +218,7 @@
           code: "222",
         },
         { grade: 3, updated: true, url: "https://forms.gle/DB28vTXwysmx59RTA", code: "333" },
-        { grade: 4, url: "https://forms.gle/ZWKR3N1cp8MpJMW48", code: "444" },
+        { grade: 4, updated: true, url: "https://forms.gle/38pnqMbkY8cQufZZ6", code: "444" },
         {
           grade: 5,
           updated: true,
@@ -312,5 +323,6 @@
         grid.appendChild(card);
       });
     </script>
-  </body>
+</body>
+
 </html>
